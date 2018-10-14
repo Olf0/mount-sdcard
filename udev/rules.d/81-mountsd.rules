@@ -1,0 +1,2 @@
+# Unmatch sda0 to mmcblk1 both of DEVTYPE==disk and SUBSYSTEM=="block", if no filesystem detected by udev:
+KERNEL=="mmcblk1*|sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_FS_USAGE}!="filesystem", ACTION=="add", TAG-="systemd", ENV{SYSTEMD_WANTS}=""
