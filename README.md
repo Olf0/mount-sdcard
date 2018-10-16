@@ -6,7 +6,7 @@ These systemd units "mount-sd@.service", "symlink-sd@.service" and the udev rule
 They provide the following enhancements compared to the original versions (as of SailfishOS 2.2.x):
 * Start mounting (partitions on) SD-card via udisks at the earliest sensible time: Right after udisks2.service has started.
 * Unmount before udisks2 begins stopping, hence achieving a clean unmount.
-* Ensure, that AlienDalvik (alien-service-manager.service) begins starting after mounting succeeded, to allow for [android_storage ("/data/media") on SD-card](https://together.jolla.com/question/179060/how-to-externalising-android_storage-and-other-directories-files-to-sd-card/#179060-2-externalising-homenemoandroid_storage); even more importantly this also ensures, that unmounting occurs only after AlienDalvik is completely stopped.<br />
+* Ensure, that AlienDalvik (alien-service-manager.service) begins starting after mounting succeeded, to allow for [android_storage on SD-card](https://together.jolla.com/question/179060/how-to-externalising-android_storage-and-other-directories-files-to-sd-card/#179060-2-externalising-homenemoandroid_storage); even more importantly this also ensures, that unmounting occurs only after AlienDalvik is completely stopped.<br />
 Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
 * These configuration files do not alter, substitute or delete any extant files.
 * Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.
