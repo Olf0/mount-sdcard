@@ -1,5 +1,5 @@
 # mount-sdcard
-Enhanced mounting scripts for SD-cards under SailfishOS 2.2.x
+Enhanced mounting scripts for SD-cards under SailfishOS 2.2
 
 These systemd units "mount-sd@.service", "symlink-sd@.service" and the udev rule file "81-mount-sd.rule" are by-products of optimising the start-up timing, feature set and shut-down behavior of [crypto-sdcard](https://github.com/Olf0/crypto-sdcard).
 
