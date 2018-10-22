@@ -14,4 +14,5 @@ Nevertheless, these configuration files are also applicable to devices without A
 Notes:
 * These configuration files do not alter, replace or delete any extant files.
 * Support of partitions and whole devices (as Jolla's original versions).
+* An RPM built for SailfishOS is available at [OpenRepos](https://openrepos.net/content/olf/mount-sdcard).
 
