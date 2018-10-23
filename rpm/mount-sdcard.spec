@@ -1,7 +1,7 @@
 Name:       	mount-sdcard
-Summary:    	Enhanced mounting scripts for SD-cards under SailfishOS 2.2.x
+Summary:    	Enhanced mounting scripts for SD-cards under SailfishOS 2.2 and later
 Version:    	0.1
-Release:  	1
+Release:   	1
 Group:      	System/Base
 Distribution:	SailfishOS
 Vendor:     	olf
@@ -14,7 +14,7 @@ BuildArch:  	noarch
 BuildRequires:	systemd
 Requires:   	systemd
 Requires:   	udisks2
-Requires: 	sailfish-version >= 2.2.0
+Requires:  	sailfish-version >= 2.2.0
 
 %description
 %{summary}
