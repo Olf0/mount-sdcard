@@ -1,5 +1,5 @@
 Name:       	mount-sdcard
-Summary:    	Enhanced mounting scripts for SD-cards under SailfishOS 2.2 and later
+Summary:    	Enhanced mounting scripts for SD-cards under SailfishOS
 Version:    	0.1
 Release:   	1
 Group:      	System/Base
