@@ -1,5 +1,5 @@
 # mount-sdcard
-Enhanced mounting scripts for SD-cards under SailfishOS 2.2 and later
+Enhanced mounting scripts for SD-cards under SailfishOS
 
 These systemd units "mount-sd@.service", "symlink-sd@.service" and the udev rule file "81-mount-sd.rule" are by-products of optimising the start-up timing, feature set and shut-down behavior of [crypto-sdcard](https://github.com/Olf0/crypto-sdcard).
 
@@ -13,6 +13,7 @@ Nevertheless, these configuration files are also applicable to devices without A
 
 Notes:
 * These configuration files do not alter, replace or delete any extant files.
+* Minimal SailfishOS version supported by **mount-sdcard** is 2.2.0.
 * Support of partitions and whole devices (as Jolla's original versions).
 * An RPM built for SailfishOS is available at [OpenRepos](https://openrepos.net/content/olf/mount-sdcard).
 
