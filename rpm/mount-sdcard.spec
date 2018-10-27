@@ -14,9 +14,8 @@ BuildArch:  	noarch
 BuildRequires:	systemd
 Requires:   	systemd
 Requires:   	udisks2
-Requires:  	sailfish-version >= 2.2.0
-Requires:   sailfish-version < 3.0.0
-
+Requires:     sailfish-version >= 2.2.0
+Requires:     sailfish-version < 3.0.0
 %description
 %{summary}
 
