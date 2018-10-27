@@ -16,6 +16,7 @@ Requires:   	systemd
 Requires:   	udisks2
 Requires:     sailfish-version >= 2.2.0
 Requires:     sailfish-version < 3.0.0
+
 %description
 %{summary}
 
@@ -31,6 +32,5 @@ cp -R systemd udev %{buildroot}%{_sysconfdir}/
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
-
 %{_sysconfdir}/udev/rules.d/81-mountsd.rules
 
