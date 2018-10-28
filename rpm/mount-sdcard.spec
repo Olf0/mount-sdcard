@@ -35,7 +35,7 @@ cp -R systemd udev %{buildroot}%{_sysconfdir}/
 %{_sysconfdir}/udev/rules.d/81-mountsd.rules
 
 %post
-# Replay enhanced git.merproject.org/udisks2/udisks2-symlink-mount-path
+# Replay adapted git.merproject.org/Olf0/udisks2/udisks2-symlink-mount-path
 OLD_MOUNT_PATH=/media/sdcard
 if [ ! -L ${OLD_MOUNT_PATH} ] 
 then
