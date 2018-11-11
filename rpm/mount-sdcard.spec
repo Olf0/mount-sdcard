@@ -15,7 +15,8 @@ BuildRequires:	systemd
 Requires:   	systemd
 Requires:   	udisks2
 Requires:     sailfish-version >= 2.2.0
-Requires:     sailfish-version < 3.0.1
+# Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
+# Requires:     sailfish-version < 3.0.1
 
 %description
 %{summary}
