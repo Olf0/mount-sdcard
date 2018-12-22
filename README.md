@@ -14,7 +14,7 @@ Nevertheless, these configuration files are also applicable to devices without A
 Notes:
 * These configuration files do not alter, replace or delete any extant files.
 * Minimal SailfishOS version supported by **mount-sdcard** is 2.2.0.
-* Support of partitions and whole devices (as Jolla's original versions).
+* Support of partitions and whole devices (as Jolla's original versions do).
 * Support for (µ)SD-cards and USB-attached storage (if supported by device hardware and Operating System).
 * An RPM built for SailfishOS is available at [OpenRepos](https://openrepos.net/content/olf/mount-sdcard).
 
