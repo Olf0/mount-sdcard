@@ -13,6 +13,11 @@ Before=alien-service-manager.service
 User=nemo
 Type=oneshot
 RemainAfterExit=yes
+# As "udisksctl mount" (below) may fail when issued right after
+# "udisksd" (per "udisks2.service") has finished starting, because
+# the udisks object for a partition has not been created yet, one
+# may give udisksd a second to settle:
+# ExecStartPre=/bin/sleep 1
 ExecStart=/usr/bin/udisksctl mount -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 
