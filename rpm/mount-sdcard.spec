@@ -1,28 +1,27 @@
 Name:       	mount-sdcard
 Summary:    	Enhanced mounting scripts for SD-cards
 Version:    	0.6
-Release:   	1
+Release:    	2
 Group:      	System/Base
 Distribution:	SailfishOS
 Vendor:     	olf
 Packager:   	olf
 License:    	MIT
 URL:        	https://github.com/Olf0/%{name}
-Source0:    	%{name}-%{version}-%{release}.tar.gz
+Source:     	%{name}-%{version}-%{release}.tar.gz
 Source1:    	https://github.com/Olf0/%{name}/archive/%{version}-%{release}.tar.gz
 BuildArch:  	noarch
-BuildRequires:	systemd
 Requires:   	systemd
 Requires:   	udisks2
-Requires:     sailfish-version >= 2.2.0
+Requires:   	sailfish-version >= 2.2.0
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:     sailfish-version < 3.0.1
+# Requires:  	sailfish-version < 3.0.1
 
 %description
 %{summary}
 
 %prep
-%setup -q -n %{name}-%{version}-%{release}
+%setup -n %{name}-%{version}-%{release}
 
 %build
 
@@ -38,7 +37,7 @@ cp -R systemd udev %{buildroot}%{_sysconfdir}/
 %post
 # Replay adapted https://git.merproject.org/olf/udisks2/blob/master/rpm/udisks2-symlink-mount-path
 OLD_MOUNT_PATH="/media/sdcard"
-if [ ! -L "$OLD_MOUNT_PATH" ] 
+if [ ! -L "$OLD_MOUNT_PATH" ]
 then
   DEF_UID="$(grep '^UID_MIN' /etc/login.defs | tr -s ' ' | cut -f 2 -d ' ')"
   DEVICEUSER="$(getent passwd $DEF_UID | sed 's/:.*//')"
