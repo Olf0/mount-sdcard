@@ -1,5 +1,5 @@
 # mount-sdcard
-Enhanced mounting scripts for SD-cards under SailfishOS
+#### Enhanced mounting scripts for SD-cards under SailfishOS
 
 This systemd unit file and the udev rules file are by-products of optimising the start-up timing, feature set and shut-down behavior of [crypto-sdcard](https://github.com/Olf0/crypto-sdcard).
 
