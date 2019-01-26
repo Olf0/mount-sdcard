@@ -9,7 +9,7 @@ They provide the following enhancements compared to the original versions (as of
 * Ensure, that AlienDalvik (specifically *alien-service-manager.service*) begins starting after mounting succeeded, to allow for [android_storage on SD-card](https://together.jolla.com/question/179060/how-to-externalising-android_storage-and-other-directories-files-to-sd-card/#179060-2-externalising-homenemoandroid_storage).  Even more importantly this also ensures, that unmounting occurs only after AlienDalvik is completely stopped.<br />
 Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
 * Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.
-* Before v1.0: reate / try to rectify the "compatibility symlink" in order to allow older apps seamlessly accessing (partitions on) SD-cards at their new (since SailfishOS 2.2.0) mount point.
+* Versions below 1.0: reate / try to rectify the "compatibility symlink" in order to allow older apps seamlessly accessing (partitions on) SD-cards at their new (since SailfishOS 2.2.0) mount point.
 
 Notes:
 * These configuration files do not alter, replace or delete any extant files.
