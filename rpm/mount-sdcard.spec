@@ -1,7 +1,7 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
 Version:       1.0
-Release:       3
+Release:       4
 Group:         System/Base
 Distribution:  SailfishOS
 Vendor:        olf
@@ -12,9 +12,9 @@ Source:        https://github.com/Olf0/%{name}/archive/%{version}-%{release}/%{n
 BuildArch:     noarch
 Requires:      systemd
 Requires:      udisks2
-Requires:      sailfish-version >= 2.2.0
+Requires:      sailfish-version >= 3.0.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:     sailfish-version < 3.0.1
+# Requires:     sailfish-version < 3.2.0
 
 %description
 %{summary}
@@ -26,10 +26,9 @@ Requires:      sailfish-version >= 2.2.0
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}
-cp -R systemd udev %{buildroot}%{_sysconfdir}/
+cp -R systemd %{buildroot}%{_sysconfdir}/
 
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
-%{_sysconfdir}/udev/rules.d/91-mountsd.rules
 
