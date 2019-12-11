@@ -1,6 +1,6 @@
 [Unit]
 Description=Mount SD-card (%i) with udisks
-After=udisks2.service dev-%i.device
+After=udisks2.service dev-%i.device start-user-session.service
 BindsTo=udisks2.service dev-%i.device
 Conflicts=rescue.target actdead.target factory-test.target
 # Ensure that this Unit is processed before alien-service-manager
@@ -10,7 +10,6 @@ Conflicts=rescue.target actdead.target factory-test.target
 Before=alien-service-manager.service
 
 [Service]
-User=nemo
 Type=oneshot
 RemainAfterExit=yes
 # As "udisksctl mount" (below) may fail when issued right after
@@ -18,6 +17,6 @@ RemainAfterExit=yes
 # the udisks object for a partition has not been created yet, one
 # may give udisksd a second to settle:
 # ExecStartPre=/bin/sleep 1
-ExecStart=/usr/bin/udisksctl mount -b /dev/%i
-ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
+ExecStart=/usr/bin/udisksctl-user mount -b /dev/%i
+ExecStop=/usr/bin/udisksctl-user unmount -b /dev/%i
 
