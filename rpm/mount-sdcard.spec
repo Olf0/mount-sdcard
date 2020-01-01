@@ -18,8 +18,8 @@ URL:           https://github.com/Olf0/%{name}
 Source:        https://github.com/Olf0/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:     noarch
 Requires:      systemd
-Requires:      udisks2
-Requires:      sailfish-version >= 3.2.1
+Requires:      udisks2 >= 2.8.1+git5-1.12.1.jolla
+# Requires:     sailfish-version >= 3.2.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
 # Requires:     sailfish-version < 3.9.9
 
