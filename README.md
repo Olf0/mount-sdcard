@@ -15,7 +15,7 @@ Nevertheless, these configuration files are also applicable to devices without A
 Notes:
 * These configuration files do not alter, replace or delete any extant files.
 * Minimal SailfishOS version supported by *mount-sdcard* is 2.2.0.
-* Since *mount-sdcard 1.0-4* at least SailfishOS 3.0.1 is required.
+* Since *mount-sdcard 1.0-4* at least [SailfishOS 3.0.1](https://github.com/Olf0/mount-sdcard/releases/tag/1.0-4) is required.
 * Since *mount-sdcard 1.1-1* at least [SailfishOS 3.2.1](https://github.com/Olf0/mount-sdcard/pull/2) is required.
 * Support of partitions and whole devices (as Jolla's original versions do).
 * Support for (µ)SD-cards and USB-attached storage (if supported by device hardware and Operating System).
