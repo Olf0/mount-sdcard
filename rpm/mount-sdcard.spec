@@ -23,7 +23,7 @@ Source:        https://github.com/Olf0/%{name}/archive/%{version}/%{name}-%{vers
 BuildArch:     noarch
 Requires:      systemd
 Requires:      udisks2 >= 2.8.1+git5-1.12.1.jolla
-# Better use specific dependencies than generic ones (the line above versus the one below), but
+# Better use direct dependencies than indirect ones (here: the line above versus the one below), but
 # ultimately decided to use both in this case:
 Requires:      sailfish-version >= 3.2.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
