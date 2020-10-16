@@ -2,7 +2,8 @@
 Description=Mount SD-card (%i) with udisks
 After=udisks2.service dev-%i.device start-user-session.service
 BindsTo=udisks2.service dev-%i.device
-Conflicts=rescue.target actdead.target factory-test.target
+# Allow for rescue.target:
+Conflicts=actdead.target factory-test.target
 # Ensure that this Unit is processed before alien-service-manager
 # is started (and even more importantly that it is shut down, *after*
 # alien-service-manager is shut down), to allow for android_storage
