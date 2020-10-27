@@ -1,6 +1,6 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
-Version:       1.2.9
+Version:       1.3.0
 # Stop evaluating the Release tag content (only set it) and cease including it in git tags since v1.2.0, 
 # in order to satisfy OBS' git_tar.  Consequently switch to a three field semantic versioning scheme for
 # releases and their git tags.
