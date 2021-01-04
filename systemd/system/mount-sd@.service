@@ -21,5 +21,5 @@ RemainAfterExit=yes
 # Note that above became unnecessary by "After=start-user-session.service",
 # which is needed to use the /usr/bin/udisksctl-user script.
 ExecStart=/usr/bin/udisksctl-user mount -o noexec -b /dev/%i
-ExecStop=/usr/bin/udisksctl-user unmount -b /dev/%i
+ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 
