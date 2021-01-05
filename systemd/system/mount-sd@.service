@@ -20,6 +20,7 @@ RemainAfterExit=yes
 # ExecStartPre=/bin/sleep 1
 # Note that above became unnecessary by "After=start-user-session.service",
 # which is needed to use the /usr/bin/udisksctl-user script.
-ExecStart=/usr/bin/udisksctl-user mount -o noexec -b /dev/%i
+EnvironmentFile=-/var/lib/environment/udisks2/*.conf
+ExecStart=/usr/bin/udisksctl-user mount -o noexec $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 
