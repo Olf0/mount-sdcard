@@ -1,11 +1,12 @@
 # mount-sdcard
 #### Enhanced mounting scripts for SD-cards under SailfishOS
 
-This systemd unit file and the udev rules file are by-products of optimising the start-up timing, feature set and shut-down behavior of [crypto-sdcard](https://github.com/Olf0/crypto-sdcard).
+This systemd unit file and the udev rules file are by-products of optimising the start-up timing, feature set and shut-down behavior of [*crypto-sdcard*](https://github.com/Olf0/crypto-sdcard).
 
 They provide the following enhancements compared to the original versions (as of SailfishOS 2.2.x):
 * Start mounting (partitions on) SD-card via udisks at the earliest sensible time: Right after udisks2.service has started.
 * Unmount before udisks2 begins stopping, hence achieving a clean unmount.
+* Also do not use Jolla's `udisksctl-user` script for unmounting (because this cannot work), which was introduced and is used by SailfishOS since its release 3.2.1, and was also used by *mount-sdcard* versions 1.1-1 to 1.3.0-21; see [details here](https://github.com/Olf0/mount-sdcard/pull/2).
 * Ensure, that AlienDalvik (specifically *alien-service-manager.service*) begins starting after mounting succeeded, to allow for [android_storage on SD-card](https://together.jolla.com/question/203539/guide-externalising-android_storage-and-other-directories-files-to-sd-card/#203539-2-externalising-homenemoandroid_storage).  Even more importantly this also ensures, that unmounting occurs only after AlienDalvik is completely stopped.<br />
 Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
 * Versions below 1.0-4: Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.<br />
