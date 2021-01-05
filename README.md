@@ -11,7 +11,7 @@ They provide the following enhancements compared to SailfishOS' original version
   Even more importantly (i.e., also relevant for devices without "android_storage on SD-card") this also ensures, that unmounting occurs only after AlienDalvik has completely stopped.<br />
   Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
 * Versions below 1.0-4: Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.<br />
-  As Jolla resolved this in SailfishOS 3.0.1 (see [commit](https://git.sailfishos.org/mer-core/udisks2/commit/6fae1738440d65deb995edb0e5d759c74729d00b) and [changelog](https://together.jolla.com/question/195733/changelog-301-sipoonkorpi/#195733-udisks2)), this workaround is omitted in [*mount-sdcard 1.0-4*](https://github.com/Olf0/mount-sdcard/releases) (and later versions), making [*v1.0-3*](https://github.com/Olf0/mount-sdcard/releases/tag/1.0-3) the last release installable on SailfishOS 2.2.0, 2.2.1 and 3.0.0.
+  As Jolla resolved this in SailfishOS 3.0.1 (see [commit](https://git.sailfishos.org/mer-core/udisks2/commit/6fae1738440d65deb995edb0e5d759c74729d00b) and [changelog](https://together.jolla.com/question/195733/changelog-301-sipoonkorpi/#195733-udisks2)), this workaround is omitted in *mount-sdcard 1.0-4* (and later versions), making [*v1.0-3*](https://github.com/Olf0/mount-sdcard/releases/tag/1.0-3) the last release installable on SailfishOS 2.2.0, 2.2.1 and 3.0.0.
 * Versions below 1.0: Create / try to rectify the "compatibility symlink" in order to allow older apps seamlessly accessing (partitions on) SD-cards at their new (since SailfishOS 2.2.0) mount point.
 
 Notes:
