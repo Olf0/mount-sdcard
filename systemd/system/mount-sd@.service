@@ -1,9 +1,12 @@
 [Unit]
 Description=Mount SD-card (%i) with udisks
 After=udisks2.service dev-%i.device start-user-session.service
-BindsTo=udisks2.service dev-%i.device
-# Allow for rescue.target:
-Conflicts=actdead.target factory-test.target
+BindsTo=dev-%i.device
+Requisite=udisks2.service
+# Allow for rescue.target and conflict with umount.target (see
+# man 7 systemd.special; needed expicitly for the new ExecStopPost
+# statement as this a mounting unit, although not a mount unit):
+Conflicts=umount.target actdead.target factory-test.target
 # Ensure that this Unit is processed before alien-service-manager
 # is started (and even more importantly that it is shut down, *after*
 # alien-service-manager is shut down), to allow for android_storage
@@ -23,4 +26,5 @@ RemainAfterExit=yes
 EnvironmentFile=-/var/lib/environment/udisks2/%p.conf
 ExecStart=/usr/bin/udisksctl-user mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
+ExecStopPost=/usr/bin/umount -q /dev/%i
 
