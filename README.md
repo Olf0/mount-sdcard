@@ -12,7 +12,7 @@ They provide the following enhancements compared to SailfishOS' original version
   Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
 * Since v1.3.3 (see [release notes of v1.3.2](https://github.com/Olf0/mount-sdcard/releases/tag/1.3.2) for technical details of this feature):<br/>
   Try to evaluate the Systemd [EnvironmentFile](https://www.freedesktop.org/software/systemd/man/systemd.exec.html#EnvironmentFile=)s `mount-sd.conf` and `mount-sd@<device-name>.conf` (in this order) located in `/var/lib/environment/udisks2/`.  *mount-sdcard* looks only for these two file names for mounting (each partition on) an SD-card, in contrast to [Jolla's original](https://git.sailfishos.org/mer-core/udisks2/blob/master/rpm/0013-Pass-extra-mount-options-to-mount-sd-service.patch), which uses any `*.conf` file in this directory for every partition the original *mount-sd.service* mounts.<br />
-  Note that *mount-sdcard* actually deploys `/var/lib/environment/udisks2/mount-sd.conf` (in contrast to Jolla's original), containing `UDISKS2_MOUNT_OPTIONS="-o noexec"`.  As with Jolla's original, ...
+  Note that *mount-sdcard* actually deploys a `/var/lib/environment/udisks2/mount-sd.conf` (in contrast to Jolla's original), containing `UDISKS2_MOUNT_OPTIONS="-o noexec"`.  As with Jolla's original, ...
   * only the environment variable `UDISKS2_MOUNT_OPTIONS` is evaluated.
   * all other variable assignments, empty lines, empty `*.conf` files or missing files are ignored.
   * mind that *udisks2* filters the mount options: While `noexec` and `readonly` are allowed, `lazytime` results in *udisks2* refusing to mount (I have not tried any other additional mount options, but these three).
