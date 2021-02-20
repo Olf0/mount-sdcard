@@ -27,5 +27,5 @@ EnvironmentFile=-/var/lib/environment/udisks2/%p.conf
 EnvironmentFile=-/var/lib/environment/udisks2/%N.conf
 ExecStart=/usr/bin/udisksctl-user mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
-ExecStopPost=/bin/umount -vfrq /dev/%i
+ExecStopPost=/bin/umount -vq /dev/%i
 
