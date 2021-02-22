@@ -9,8 +9,8 @@ Requires=udisks2.service
 Conflicts=umount.target actdead.target factory-test.target
 # Ensure that this Unit is processed before alien-service-manager
 # is started (and even more importantly that it is shut down, *after*
-# alien-service-manager is shut down), to allow for android_storage
-# on SD-card:
+# alien-service-manager is shut down), to allow for e.g. (and more), 
+# android_storage on SD-card:
 Before=alien-service-manager.service
 
 [Service]
@@ -18,13 +18,6 @@ Type=oneshot
 RemainAfterExit=yes
 EnvironmentFile=-/var/lib/environment/udisks2/%p@.conf
 EnvironmentFile=-/var/lib/environment/udisks2/%N.conf
-# As "udisksctl mount" (below) may fail when issued right after
-# "udisksd" (per "udisks2.service") has finished starting, because
-# the udisks object for a partition has not been created yet, one
-# may give udisksd a second to settle:
-# ExecStartPre=/bin/sleep 1
-# Note that above became unnecessary by "After=start-user-session.service",
-# which is needed to use the /usr/bin/udisksctl-user script.
 ExecStart=/usr/bin/udisksctl-user mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 ExecStopPost=/bin/umount -vrq /dev/%i
