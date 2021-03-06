@@ -6,7 +6,7 @@ Version:       1.3.5
 # releases and their git tags.
 # Hence any changes to the spec file now always trigger an increase of the bug fix release number, i.e.
 # the third field of the Version.
-# But the Release tag is now merely used to monotonically count up through all releases (starting from 1).
+# The Release tag is now merely used to monotonically count up through all releases (starting from 1).
 # Note that no other release identifiers shall be used.
 Release:       26
 Group:         System/Base
