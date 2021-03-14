@@ -1,2 +1,3 @@
 # Unmatch sda0 to mmcblk1pX of SUBSYSTEM=="block", if no filesystem detected by udev:
 KERNEL=="mmcblk1*|sd[a-z]*", SUBSYSTEM=="block", ENV{ID_FS_USAGE}!="filesystem", ACTION=="add", TAG-="systemd", ENV{SYSTEMD_WANTS}=""
+
