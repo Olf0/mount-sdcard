@@ -6,7 +6,7 @@ This systemd unit file and the udev rules file are by-products of optimising the
 They provide the following enhancements compared to SailfishOS' original versions:
 * Start mounting (partitions on) SD-card via udisks at the earliest sensible time: Right after *udisks2.service* has started.
 * Unmount before *udisks2.service* begins stopping, hence achieving a clean unmount.
-* Also do not use SailfishOS' *udisksctl-user* script for unmounting (because this cannot work at the time ExecStop is executed), which is installed and used by SailfishOS since its release 3.2.1, and was also used by *mount-sdcard* versions 1.1-1 to 1.3.0-21; see [details here](https://github.com/Olf0/mount-sdcard/pull/2).
+* Also do not use SailfishOS' *udisksctl-user* script for unmounting (because this cannot work at the time ExecStop is executed), which is installed and used by SailfishOS since its release 3.2.1, and was also used by *mount-sdcard* versions 1.1-1 to 1.3.0; see [details here](https://github.com/Olf0/mount-sdcard/pull/2).
 * Ensure, that AlienDalvik (specifically *alien-service-manager.service*) begins starting after mounting succeeded, to allow for [android_storage on SD-card](https://together.jolla.com/question/203539/guide-externalising-android_storage-and-other-directories-files-to-sd-card/#203539-2-externalising-homenemoandroid_storage).<br />
   Even more importantly (i.e., also relevant for devices without "android_storage on SD-card") this also ensures, that unmounting occurs only after AlienDalvik has completely stopped.<br />
   Nevertheless, these configuration files are also applicable to devices without AlienDalvik installed.
