@@ -30,7 +30,7 @@ Requires:      udisks2 >= 2.8.1+git5-1.12.1.jolla
 # ultimately decided to use both in this case:
 Requires:      sailfish-version >= 3.2.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 3.9.9
+# Requires:      sailfish-version < 4.9.9
 
 %description
 %{summary}
