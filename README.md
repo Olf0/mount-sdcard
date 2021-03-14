@@ -18,7 +18,7 @@ They provide the following enhancements compared to SailfishOS' original version
   * mind that *udisks2* filters the mount options: While `noexec` and `readonly` are allowed, `lazytime` results in *udisks2* refusing to mount (I have not tried any other additional mount options, but these three).
   
   If you want to execute files located on your unencrypted SD-card, do **not** delete `/var/lib/environment/udisks2/mount-sd@.conf`: It will be redeployd by the next update of *mount-sdcard*.  Instead empty this file, e.g. by executing (as root) `cd /var/lib/environment/udisks2/ && rm -f mount-sd\@.conf && touch mount-sd\@.conf`
-* Versions below 1.0-4: Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.<br />
+* Versions below 1.0-4, plus the 1.x.y-z.sfos220 versions: Inhibit stubbornly trying to mount block devices without a filesystem recognised by the kernel / udev.<br />
   As Jolla resolved this in SailfishOS 3.0.1 (see [commit](https://git.sailfishos.org/mer-core/udisks2/commit/6fae1738440d65deb995edb0e5d759c74729d00b) and [changelog](https://together.jolla.com/question/195733/changelog-301-sipoonkorpi/#195733-udisks2)), this workaround is omitted in *mount-sdcard 1.0-4* (and later versions), making [*v1.0-3*](https://github.com/Olf0/mount-sdcard/releases/tag/1.0-3) and the *v1.x.y-z.sfos220* versions the latest releases installable on SailfishOS 2.2.0, 2.2.1 and 3.0.0.
 * Versions below 1.0: Create / try to rectify the "compatibility symlink" in order to allow older apps seamlessly accessing (partitions on) SD-cards at their new (since SailfishOS 2.2.0) mount point.
 
