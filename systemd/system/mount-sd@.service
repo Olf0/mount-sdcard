@@ -12,6 +12,7 @@ Conflicts=umount.target actdead.target factory-test.target
 # alien-service-manager is shut down), to allow for e.g. (and more), 
 # android_storage on SD-card:
 Before=alien-service-manager.service
+IgnoreOnIsolate=true
 
 [Service]
 Type=oneshot
