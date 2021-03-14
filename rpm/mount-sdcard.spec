@@ -9,7 +9,7 @@ Version:       1.4.2
 # - An optional third field might be used by downstream packagers, who alter the package but want to
 #   retain the exact version number.  It shall consist of the packager's name appended with a natural 
 #   number greater than zero, e.g "joe8".
-Release:       1.sfos321
+Release:       1.sfos301
 Group:         System/Base
 Distribution:  SailfishOS
 Vendor:        olf
@@ -25,10 +25,10 @@ Source:        https://github.com/Olf0/%{name}/archive/%{version}-%{release}/%{n
 #Icon:          smartmedia_unmount.256x256.gif
 BuildArch:     noarch
 Requires:      systemd
-Requires:      udisks2 >= 2.8.1+git5-1.12.1.jolla
+Requires:      udisks2
 # Better use direct dependencies than indirect ones (here: the line above versus the one below), but
 # ultimately decided to use both in this case:
-Requires:      sailfish-version >= 3.2.1
+Requires:      sailfish-version >= 3.0.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
 # Requires:      sailfish-version < 3.9.9
 
