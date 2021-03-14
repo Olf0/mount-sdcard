@@ -30,7 +30,7 @@ Requires:      udisks2
 # ultimately decided to use both in this case:
 Requires:      sailfish-version >= 3.0.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 3.9.9
+Requires:      sailfish-version < 3.2.1
 
 %description
 %{summary}
