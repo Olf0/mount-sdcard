@@ -1,21 +1,22 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
-Version:       1.4.1
-# Stop evaluating the Release tag content (only set it) and cease including it in git tags since v1.2.0, 
-# in order to satisfy OBS' git_tar.  Consequently switch to a three field semantic versioning scheme for
-# releases and their git tags.
-# Hence any changes to the spec file now always trigger an increase of the bug fix release number, i.e.
-# the third field of the Version.
-# The Release tag is now merely used to monotonically count up through all releases (starting from 1).
-# Note that no other release identifiers shall be used.
-Release:       27
+Version:       1.4.2
+# Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
+# - The first field must contain a natural number greater than zero.
+#   This number may be prefixed by one of {alpha,beta,stable}, e.g. "alpha13".
+# - The second field indicates the minimal required SailfishOS version A.B.C.X in the format "sfosABC";
+#   the fourth field of a SailfishOS version ("X") is neither depended upon or denoted.
+# - An optional third field might be used by downstream packagers, who alter the package but want to
+#   retain the exact version number.  It shall consist of the packager's name appended with a natural 
+#   number greater than zero, e.g "joe8".
+Release:       1.sfosABC
 Group:         System/Base
 Distribution:  SailfishOS
 Vendor:        olf
 Packager:      olf
 License:       MIT
 URL:           https://github.com/Olf0/%{name}
-Source:        https://github.com/Olf0/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+Source:        https://github.com/Olf0/%{name}/archive/%{version}-%{release}/%{name}-%{version}-%{release}.tar.gz
 # rpmbuild (as of v4.14.1) handles the Icon tag awkwardly and in contrast to the Source tag(s):
 # It only accepts a GIF or XPM file (a path is stripped to its basename) in the SOURCES directory
 # (but not inside a tarball there)!  Successfully tested GIF89a and XPMv3, but an XPM icon results
