@@ -28,9 +28,9 @@ Requires:      systemd
 Requires:      udisks2
 # Better use direct dependencies than indirect ones (here: the line above versus the one below), but
 # ultimately decided to use both in this case:
-Requires:      sailfish-version >= 3.0.1
+Requires:      sailfish-version >= 2.2.0
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 3.9.9
+Requires:      sailfish-version < 3.0.1
 
 %description
 %{summary}
@@ -42,12 +42,13 @@ Requires:      sailfish-version >= 3.0.1
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}
-cp -R systemd %{buildroot}%{_sysconfdir}/
+cp -R systemd udev %{buildroot}%{_sysconfdir}/
 mkdir -p %{buildroot}%{_sharedstatedir}
 cp -R environment %{buildroot}%{_sharedstatedir}/
 
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
+%{_sysconfdir}/udev/rules.d/91-mountsd.rules
 %config(noreplace) %{_sharedstatedir}/environment/udisks2/mount-sd@.conf
 
