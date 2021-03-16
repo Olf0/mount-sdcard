@@ -1,7 +1,7 @@
 [Unit]
 Description=Mount SD-card (%i) with udisks
 After=udisks2.service dev-%i.device start-user-session.service
-BindsTo=dev-%i.device
+Requisite=dev-%i.device
 Requires=udisks2.service
 # Allow for rescue.target and conflict with umount.target (see
 # man 7 systemd.special; needed explicitly for the new ExecStopPost
@@ -11,7 +11,7 @@ Conflicts=umount.target actdead.target factory-test.target
 # is started (and even more importantly that it is shut down, *after*
 # alien-service-manager is shut down), to allow for e.g. (and more), 
 # android_storage on SD-card:
-Before=alien-service-manager.service
+Before=alien-service-manager.service umount.target
 
 [Service]
 User=nemo
