@@ -1,5 +1,5 @@
 [Unit]
-Description=Mount SD-card (%i) with udisks
+Description=Mount /dev/%i per udisks
 After=udisks2.service dev-%i.device start-user-session.service
 Requisite=dev-%i.device
 Requires=udisks2.service
