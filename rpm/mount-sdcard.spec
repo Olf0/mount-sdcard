@@ -25,9 +25,10 @@ Source:        https://github.com/Olf0/%{name}/archive/%{version}-%{release}/%{n
 #Icon:          smartmedia_unmount.256x256.gif
 BuildArch:     noarch
 Requires:      systemd
-Requires:      udisks2 >= 2.8.1+git5-1.12.1.jolla
-# Better use direct dependencies than indirect ones (here: the line above versus the one below), but
-# ultimately decided to use both in this case:
+Requires:      udisks2
+# Better use direct dependencies on specific versions than indirect ones (here: the line above
+# versus the one below) in general, but ultimately decided not to do so in this special case
+# (for commonality across release versions):
 Requires:      sailfish-version >= 3.2.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
 # Requires:      sailfish-version < 4.9.9
