@@ -50,5 +50,5 @@ cp -R environment %{buildroot}%{_sharedstatedir}/
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
-%config(noreplace) %{_sharedstatedir}/environment/udisks2/mount-sd@.conf
+%config %{_sharedstatedir}/environment/udisks2/mount-sd@.conf
 
