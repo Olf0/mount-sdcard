@@ -48,5 +48,5 @@ cp -R systemd %{buildroot}%{_sysconfdir}/
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
-%config %{_sysconfdir}/systemd/system/mount-sd@.conf
+%config %{_sysconfdir}/systemd/system/mount-sd.conf
 
