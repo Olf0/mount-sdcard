@@ -44,11 +44,9 @@ Requires:      sailfish-version >= 3.2.1
 %install
 mkdir -p %{buildroot}%{_sysconfdir}
 cp -R systemd %{buildroot}%{_sysconfdir}/
-mkdir -p %{buildroot}%{_sharedstatedir}
-cp -R environment %{buildroot}%{_sharedstatedir}/
 
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
-%config %{_sharedstatedir}/environment/udisks2/mount-sd@.conf
+%config %{_sysconfdir}/systemd/system/mount-sd@.conf
 
