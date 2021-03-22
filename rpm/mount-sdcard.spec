@@ -1,6 +1,6 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
-Version:       1.5.0
+Version:       1.5.1
 # Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
 # - The first field must contain a natural number greater than zero.
 #   This number may be prefixed by one of {alpha,beta,stable}, e.g. "alpha13".
@@ -26,8 +26,9 @@ Source:        https://github.com/Olf0/%{name}/archive/%{version}-%{release}/%{n
 BuildArch:     noarch
 Requires:      systemd
 Requires:      udisks2
-# Better use direct dependencies than indirect ones (here: the line above versus the one below), but
-# ultimately decided to use both in this case:
+# Better use direct dependencies on specific versions than indirect ones (here: the line above
+# versus the one below) in general, but ultimately decided not to do so in this special case
+# (for commonality across release versions):
 Requires:      sailfish-version >= 2.2.0
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
 Requires:      sailfish-version < 3.0.1
@@ -43,12 +44,10 @@ Requires:      sailfish-version < 3.0.1
 %install
 mkdir -p %{buildroot}%{_sysconfdir}
 cp -R systemd udev %{buildroot}%{_sysconfdir}/
-mkdir -p %{buildroot}%{_sharedstatedir}
-cp -R environment %{buildroot}%{_sharedstatedir}/
 
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
 %{_sysconfdir}/udev/rules.d/91-mountsd.rules
-%config(noreplace) %{_sharedstatedir}/environment/udisks2/mount-sd@.conf
+%config %{_sysconfdir}/systemd/system/mount-sd.conf
 

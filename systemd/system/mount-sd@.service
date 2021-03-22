@@ -1,5 +1,5 @@
 [Unit]
-Description=Mount SD-card (%i) with udisks
+Description=Mount /dev/%i per udisks
 After=udisks2.service dev-%i.device start-user-session.service
 Requisite=dev-%i.device
 Requires=udisks2.service
@@ -16,8 +16,9 @@ Before=alien-service-manager.service umount.target
 User=nemo
 Type=oneshot
 RemainAfterExit=yes
-EnvironmentFile=-/var/lib/environment/udisks2/%p@.conf
-EnvironmentFile=-/var/lib/environment/udisks2/%N.conf
+EnvironmentFile=/etc/systemd/system/%p.conf
+EnvironmentFile=-/etc/mount-sdcard/%p.conf
+EnvironmentFile=-/etc/mount-sdcard/%N.conf
 ExecStart=/usr/bin/udisksctl mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 ExecStopPost=/bin/umount -vrq /dev/%i
