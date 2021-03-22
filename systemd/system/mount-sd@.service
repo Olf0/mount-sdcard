@@ -4,7 +4,7 @@ After=udisks2.service dev-%i.device start-user-session.service
 Requisite=dev-%i.device
 Requires=udisks2.service
 # Also conflict with umount.target (see man 7 systemd.special), as
-# this is a mounting unit, although not a mount unit:
+# this is a mounting unit, though not a mount unit:
 Conflicts=umount.target rescue.target actdead.target factory-test.target
 # Ensure that this Unit is processed before alien-service-manager
 # is started (and even more importantly that it is shut down, *after*
