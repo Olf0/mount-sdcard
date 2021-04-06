@@ -1,5 +1,7 @@
 [Unit]
-Description=Mount /dev/%i per udisks
+Description=Mount /dev/%i per udisks2
+Documentation=https://github.com/Olf0/mount-sdcard
+# SPDX-License-Identifier: LGPL-2.1-only
 After=udisks2.service dev-%i.device start-user-session.service
 Requisite=dev-%i.device
 Requires=udisks2.service
