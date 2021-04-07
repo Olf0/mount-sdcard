@@ -33,5 +33,5 @@ LABEL="mountsd_end"
 
 # Unmatch sda0 to mmcblk1 exactly (per "mmcblk1*|sd[a-z][0-9]", "block", "add") as in SailfishOS' v2.2.0 to 3.0.1
 # patched /lib/udev/rules.d/80-udisks2.rules, if no filesystem detected by udev.  This is fixed in SailfishOS 3.0.1+.
-KERNEL=="mmcblk1*|sd[a-z][0-9]", SUBSYSTEM=="block", ACTION=="add", ENV{ID_FS_USAGE}!="filesystem", TAG-="systemd", ENV{SYSTEMD_WANTS}=""
+KERNEL=="mmcblk1*|sd[a-z][0-9]", SUBSYSTEM=="block", ACTION=="add", ENV{ID_FS_USAGE}!="filesystem", TAG-="systemd", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}=""
 
