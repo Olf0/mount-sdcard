@@ -43,10 +43,11 @@ Requires:      sailfish-version >= 3.2.1
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}
-cp -R systemd %{buildroot}%{_sysconfdir}/
+cp -R systemd udev %{buildroot}%{_sysconfdir}/
 
 %files
 %defattr(-,root,root,-)
 %{_sysconfdir}/systemd/system/mount-sd@.service
+%{_sysconfdir}/udev/rules.d/91-mountsd.rules
 %config %{_sysconfdir}/systemd/system/mount-sd.conf
 
