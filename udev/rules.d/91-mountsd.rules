@@ -25,7 +25,7 @@ KERNEL=="sd*", ENV{DEVTYPE}=="disk", ENV{ID_DRIVE_FLASH_SD}="1", ENV{ID_DRIVE_ME
 #ENV{DEVTYPE}=="disk", ENV{UDISKS_CAN_POWER_OFF}="1"
 
 # Match ENV{ID_FS_USAGE}=="filesystem" for all selected devices
-ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mount_sdcard_%k", MODE="0660", ENV{MOUNTSD_ACTIVE}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
+ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mount_sdcard_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVE}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
 # When above detected and assigned devices are removed
 ENV{MOUNTSD_ACTIVE}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVE}="0", ENV{UDISKS_NAME}="mount_sdcard_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/usr/bin/systemctl stop mount-sd@%k.service"
 
