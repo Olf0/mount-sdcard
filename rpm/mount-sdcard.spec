@@ -1,6 +1,6 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
-Version:       1.7.0
+Version:       1.7.2
 # Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
 # - The first field must contain a natural number greater than zero.
 #   This number may be prefixed by one of {alpha,beta,stable}, e.g. "alpha13".
