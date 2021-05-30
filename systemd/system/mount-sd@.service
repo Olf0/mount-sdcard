@@ -22,5 +22,5 @@ EnvironmentFile=-/etc/mount-sdcard/%p.conf
 EnvironmentFile=-/etc/mount-sdcard/%N.conf
 ExecStart=/usr/bin/udisksctl mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
-ExecStopPost=/bin/umount -vrq /dev/%i
+ExecStopPost=-/bin/umount -vrq /dev/%i
 
