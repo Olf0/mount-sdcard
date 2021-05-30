@@ -9,7 +9,7 @@ Version:       1.8.0
 # - An optional third field might be used by downstream packagers, who alter the package but want to
 #   retain the exact version number.  It shall consist of the packager's name appended with a natural 
 #   number greater than zero, e.g "joe8".
-Release:       1.sfosABC
+Release:       1.sfos321
 Group:         System/Base
 Distribution:  SailfishOS
 Vendor:        olf
@@ -31,7 +31,7 @@ Requires:      udisks2
 # (for commonality across release versions):
 Requires:      sailfish-version >= 3.2.1
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 4.9.9
+Requires:      sailfish-version < 3.4.0
 
 %description
 %{summary}
