@@ -17,15 +17,17 @@ KERNEL!="mmcblk[1-9]*|sd*|sr*", GOTO="mountsd_end"
 # https://git.sailfishos.org/mer-core/udisks2/blob/master/rpm/0005-Add-udev-rule-for-the-sda-drives.patch
 # by setting these anew / clobbering these for *all suitable* devices.
 KERNEL=="mmcblk[1-9]*", ENV{DEVTYPE}=="disk", ENV{MMC_TYPE}!="?*", ENV{ID_DRIVE_FLASH_SD}="1", ENV{ID_DRIVE_MEDIA_FLASH_SD}="1"
-KERNEL=="sd*", ENV{DEVTYPE}=="disk", ENV{ID_DRIVE_FLASH_SD}="1", ENV{ID_DRIVE_MEDIA_FLASH_SD}="1"
-# ToDo: Only set that for storage, which is not "rotational", but also for SATA-RAIDs; check, if ATTR{queue/rotational} works!?!
-#KERNEL=="sd*|sr*", ENV{DEVTYPE}=="disk", ATTR{queue/rotational}=="0", ENV{ID_DRIVE_FLASH_SD}="1", ENV{ID_DRIVE_MEDIA_FLASH_SD}="1"
+SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ENV{DEVTYPE}=="disk", ATTR{queue/rotational}=="0", ENV{MMC_TYPE}!="?*", ENV{ID_DRIVE_FLASH_SD}="1", ENV{ID_DRIVE_MEDIA_FLASH_SD}="1"
 
-# Set UDISKS_CAN_POWER_OFF for all devices dealt with, here:
-#ENV{DEVTYPE}=="disk", ENV{UDISKS_CAN_POWER_OFF}="1"
+# Set power control / UDISKS_CAN_POWER_OFF for all devices dealt with, here: This is also supported for partitions, not only disks!?!
+# KERNEL=="mmcblk[1-9]*", ATTR{power/control}=="off", ATTR{power/control}="auto"
+# SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ATTR{power/control}=="off", ATTR{power/control}="auto"
+KERNEL=="mmcblk[1-9]*", ATTR{power/control}=="on", ENV{UDISKS_CAN_POWER_OFF}="1"
+SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ATTR{power/control}=="on", ENV{UDISKS_CAN_POWER_OFF}="1"
 
 # Match ENV{ID_FS_USAGE}=="filesystem" for all selected devices
-ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="'mount-sd@%k.service'"
+KERNEL=="mmcblk[1-9]*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="'mount-sd@%k.service'"
+SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="'mount-sd@%k.service'"
 # When above detected and assigned devices are removed
 ENV{MOUNTSD_ACTIVATED}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVATED}="0", ENV{UDISKS_NAME}="mountsd_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/usr/bin/systemctl stop mount-sd@%k.service"
 
