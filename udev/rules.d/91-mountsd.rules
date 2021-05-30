@@ -29,7 +29,7 @@ SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ATTR{power/control}=="on", ENV{UD
 KERNEL=="mmcblk[1-9]*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
 SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
 # When above detected and assigned devices are removed
-ENV{MOUNTSD_ACTIVATED}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVATED}="0", ENV{UDISKS_NAME}="mountsd_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/usr/bin/systemctl stop mount-sd@%k.service"
+ENV{MOUNTSD_ACTIVATED}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVATED}="0", ENV{UDISKS_NAME}="mountsd_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/bin/systemctl stop mount-sd@%k.service"
 
 LABEL="mountsd_end"
 
