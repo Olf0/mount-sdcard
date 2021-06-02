@@ -25,10 +25,14 @@ KERNEL=="mmcblk[1-9]*", ATTR{power/control}=="on", ENV{UDISKS_CAN_POWER_OFF}="1"
 SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ATTR{power/control}=="on", ENV{UDISKS_CAN_POWER_OFF}="1"
 
 # Match ENV{ID_FS_USAGE}=="filesystem" for all selected devices
-KERNEL=="mmcblk[1-9]*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="'mount-sd@%k.service'"
-SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="'mount-sd@%k.service'"
+KERNEL=="mmcblk[1-9]*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
+SUBSYSTEMS=="usb", KERNEL=="mmcblk0*|sd*|sr*", ENV{ID_FS_USAGE}=="filesystem", ACTION=="add|change", ENV{UDISKS_SYSTEM}="0", ENV{UDISKS_AUTO}="0", ENV{UDISKS_NAME}="mountsd_dev-%k", MODE="0660", ENV{MOUNTSD_ACTIVATED}="1", TAG+="systemd", ENV{SYSTEMD_WANTS}="mount-sd@%k.service"
 # When above detected and assigned devices are removed
-ENV{MOUNTSD_ACTIVATED}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVATED}="0", ENV{UDISKS_NAME}="mountsd_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/usr/bin/systemctl stop mount-sd@%k.service"
+ENV{MOUNTSD_ACTIVATED}=="1", ACTION=="remove", ENV{MOUNTSD_ACTIVATED}="0", ENV{UDISKS_NAME}="mountsd_removed", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}="", RUN{program}+="/bin/systemctl stop mount-sd@%k.service"
 
 LABEL="mountsd_end"
+
+# Unmatch sda0 to mmcblk1 exactly (per "mmcblk1*|sd[a-z][0-9]", "block", "add") as in SailfishOS' v2.2.0 to 3.0.1
+# patched /lib/udev/rules.d/80-udisks2.rules, if no filesystem detected by udev.  This is fixed in SailfishOS 3.0.1+.
+KERNEL=="mmcblk1*|sd[a-z][0-9]", SUBSYSTEM=="block", ACTION=="add", ENV{ID_FS_USAGE}!="filesystem", TAG-="systemd", ENV{SYSTEMD_WANTS}="", ENV{SYSTEMD_USER_WANTS}=""
 
