@@ -1,6 +1,6 @@
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for SD-cards
-Version:       1.8.0
+Version:       1.8.1
 # Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
 # - The first field must contain a natural number greater than zero.
 #   This number may be prefixed by one of {alpha,beta,rc,stable}, e.g. "alpha13".
@@ -30,7 +30,7 @@ Requires:      udisks2
 # versus the one below) in general, but ultimately decided not to do so in this special case
 # (for commonality across release versions):
 Requires:      sailfish-version >= 2.2.0
-# Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
+# Counter-dependency (necessary for the multiple release branch scheme chosen):
 Requires:      sailfish-version < 3.0.1
 
 %description
