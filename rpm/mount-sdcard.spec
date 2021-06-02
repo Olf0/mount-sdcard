@@ -30,7 +30,7 @@ Requires:      udisks2
 # versus the one below) in general, but ultimately decided not to do so in this special case
 # (for commonality across release versions):
 Requires:      sailfish-version >= 3.4.0
-# Counter-dependency (neccessary for the multiple release branch scheme chosen):
+# Counter-dependency (necessary for the multiple release branch scheme chosen):
 Requires:      sailfish-version < 3.4.0
 
 %description
