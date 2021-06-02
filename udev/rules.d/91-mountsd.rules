@@ -11,7 +11,6 @@
 # Is something like KERNEL=="mmcblk[1-9]*|sd*|sr*", SUBSYSTEMS=="usb", ATTR{removable}="1" possible and reasonable (means only "removable *media*"?) ?  Or without restricting it to USB-attached devices / partitions?
 
 SUBSYSTEM!="block", GOTO="mountsd_end"
-KERNEL!="mmcblk[1-9]*|sd*|sr*", GOTO="mountsd_end"
 
 # Ignore the additions / changes by Jolla per
 # https://git.sailfishos.org/mer-core/udisks2/blob/master/rpm/0005-Add-udev-rule-for-the-sda-drives.patch
