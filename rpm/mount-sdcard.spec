@@ -29,9 +29,9 @@ Requires:      udisks2
 # Better use direct dependencies on specific versions than indirect ones (here: the line above
 # versus the one below) in general, but ultimately decided not to do so in this special case
 # (for commonality across release versions):
-Requires:      sailfish-version >= 3.2.1
-# Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 4.9.9
+Requires:      sailfish-version >= 3.4.0
+# Counter-dependency, neccessary for the multiple release branch scheme chosen:
+Requires:      sailfish-version < 3.4.0
 
 %description
 %{summary}
