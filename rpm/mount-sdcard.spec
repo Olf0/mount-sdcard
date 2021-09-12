@@ -7,7 +7,7 @@ Version:       1.8.2
 # - The second field indicates the minimal required SailfishOS version A.B.C.X in the format "sfosABC";
 #   the fourth field of a SailfishOS version ("X") is neither depended upon or denoted.
 # - An optional third field might be used by downstream packagers, who alter the package but want to
-#   retain the exact version number.  It shall consist of the packager's name appended with a natural 
+#   retain the exact version number.  It should consist of the packager's name appended with a natural 
 #   number greater than zero, e.g "joe8".
 Release:       1.sfosABC
 Group:         System/Base
