@@ -3,12 +3,12 @@ Summary:       Enhanced mounting scripts for SD-cards
 Version:       1.8.2
 # Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
 # - The first field must contain a natural number greater than zero.
-#   This number may be prefixed by one of {alpha,beta,rc,stable}, e.g. "alpha13".
+#   This number may be prefixed by one of {alpha,beta,rc,release}, e.g. "alpha13".
 # - The second field indicates the minimal required SailfishOS version A.B.C.X in the format "sfosABC";
 #   the fourth field of a SailfishOS version ("X") is neither depended upon or denoted.
 # - An optional third field might be used by downstream packagers, who alter the package but want to
 #   retain the exact version number.  It should consist of the packager's name appended with a natural 
-#   number greater than zero, e.g "joe8".
+#   number greater than zero as the packaging release number, e.g "joe8".
 Release:       1.sfosABC
 Group:         System/Base
 Distribution:  SailfishOS
