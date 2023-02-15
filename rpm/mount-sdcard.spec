@@ -36,6 +36,9 @@ Requires:      sailfish-version < 3.4.0
 %description
 %{summary}
 
+%define _binary_payload w6.gzdio
+%define _source_payload w2.gzdio
+
 %prep
 %setup -n %{name}-%{version}-%{release}
 
