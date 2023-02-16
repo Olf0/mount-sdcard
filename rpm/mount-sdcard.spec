@@ -30,9 +30,9 @@ Requires:      udisks2
 # Better use direct dependencies on specific versions than indirect ones (here: the line above
 # versus the one below) in general, but ultimately decided not to do so in this special case
 # (for commonality across release versions):
-Requires:      sailfish-version >= 3.4.0
+Requires:      sailfish-version >= 2.2.0
 # Counter-dependency (necessary for the multiple release branch scheme chosen):
-Requires:      sailfish-version < 3.4.0
+Requires:      sailfish-version < 3.0.1
 
 %description
 %{summary}, USB-attached storage etc.
