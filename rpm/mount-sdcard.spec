@@ -40,7 +40,7 @@ Requires:      sailfish-version < 3.4.0
 %define _source_payload w2.gzdio
 
 %prep
-%setup -n %{name}-%{version}-%{release}
+%setup -q -n %{name}-%{version}-%{release}
 
 %build
 
