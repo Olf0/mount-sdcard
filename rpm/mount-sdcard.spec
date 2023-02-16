@@ -9,7 +9,7 @@ Version:       1.8.2
 # - An optional third field might be used by downstream packagers, who alter the package but want to
 #   retain the exact version number.  It should consist of the packager's name appended with a natural 
 #   number greater than zero as the packaging release number, e.g "joe8".
-Release:       1.sfosABC
+Release:       1.sfos321
 Group:         System/Base
 Distribution:  SailfishOS
 Vendor:        olf
