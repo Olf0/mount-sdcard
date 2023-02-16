@@ -16,7 +16,7 @@ Vendor:        olf
 Packager:      olf
 License:       LGPL-2.1-only
 URL:           https://github.com/Olf0/%{name}
-Source:        %{url}/archive/%{version}-%{release}/%{name}-%{version}-%{release}.tar.gz
+Source:        %{url}/archive/%{version}-%{release}/%{name}-%{version}.tar.gz
 # rpmbuild (as of v4.14.1) handles the Icon tag awkwardly and in contrast to the Source tag(s):
 # It only accepts a GIF or XPM file (a path is stripped to its basename) in the SOURCES directory
 # (but not inside a tarball there)!  Successfully tested GIF89a and XPMv3, but an XPM icon results
@@ -40,7 +40,7 @@ Requires:      sailfish-version < 3.4.0
 %define _source_payload w2.gzdio
 
 %prep
-%setup -q -n %{name}-%{version}-%{release}
+%setup -q
 
 %build
 
