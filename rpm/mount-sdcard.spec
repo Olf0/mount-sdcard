@@ -1,5 +1,5 @@
 Name:          mount-sdcard
-Summary:       Enhanced mounting scripts for SD-cards
+Summary:       Enhanced mounting scripts for media as SD-cards
 Version:       1.8.2
 # Since v1.4.2, the release version consists of two or three fields, separated by a dot ("."):
 # - The first field must contain a natural number greater than zero.
@@ -35,7 +35,24 @@ Requires:      sailfish-version >= 3.4.0
 Requires:      sailfish-version < 3.4.0
 
 %description
-%{summary}
+%{summary}, USB-attached storage etc.
+
+%if 0%{?_chum}
+PackageName: %{name}
+Type: generic
+Categories:
+ - Utilities
+ - System
+DeveloperName: olf (Olf0)
+Custom:
+  Repo: %{url}
+Icon: %{url}/raw/master/icon/smartmedia_unmount.256x256.png
+Url:
+  Homepage: https://openrepos.net/content/olf/%{name}
+  Help: %{url}/issues
+  Bugtracker: %{url}/issues
+  Donation: https://openrepos.net/donate
+%endif
 
 %define _binary_payload w6.gzdio
 %define _source_payload w2.gzdio
