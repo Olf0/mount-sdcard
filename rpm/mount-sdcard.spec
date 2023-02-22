@@ -32,7 +32,7 @@ Requires:      udisks2
 # (for commonality across release versions):
 Requires:      sailfish-version >= 3.4.0
 # Omit anti-dependency on future, untested SFOS versions, until a known conflict exists:
-# Requires:      sailfish-version < 9.9.9
+# Requires:      sailfish-version < 99.99.99
 
 %description
 %{summary}, USB-attached storage etc.
