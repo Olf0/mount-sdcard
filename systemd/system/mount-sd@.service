@@ -14,12 +14,13 @@ Conflicts=umount.target rescue.target actdead.target factory-test.target
 Before=alien-service-manager.service umount.target
 
 [Service]
+User=nemo
 Type=oneshot
 RemainAfterExit=yes
 EnvironmentFile=/etc/systemd/system/%p.conf
 EnvironmentFile=-/etc/mount-sdcard/%p.conf
 EnvironmentFile=-/etc/mount-sdcard/%N.conf
-ExecStart=/usr/bin/udisksctl-user mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
+ExecStart=/usr/bin/udisksctl mount $UDISKS2_MOUNT_OPTIONS -b /dev/%i
 ExecStop=/usr/bin/udisksctl unmount -b /dev/%i
 ExecStopPost=-/bin/umount -vrq /dev/%i
 
