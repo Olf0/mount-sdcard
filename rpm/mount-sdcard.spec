@@ -33,6 +33,7 @@ URL:           https://github.com/Olf0/%{name}
 # Download URLs for gzipped tarballs at GitHub must conform to:
 # %%{url}/archive/<tag-name>/<arbitrary-string>.tar.gz
 Source0:       %{url}/archive/%{release}/%{version}/%{name}-%{version}.tar.gz
+#Source99:       %{name}.rpmlintrc
 # rpmbuild (as of v4.14.1) handles the Icon tag awkwardly and in contrast to
 # the Source tag(s): It only accepts a GIF or XPM file (a path is stripped to
 # its basename) in the SOURCES directory (but not inside a tarball there)!
