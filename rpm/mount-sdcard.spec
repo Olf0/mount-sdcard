@@ -1,9 +1,10 @@
 %global branch sfosABC
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for media as SD-cards
+# The version adheres to semantic versioning v2.0.0, see https://semver.org/
 Version:       1.8.2
-# Since v1.8.2, the release version consists of two or three fields, separated
-# by dots ("."):
+# Since version 1.8.2, the release version consists of two or three fields,
+# separated by dots ("."):
 # - The first field must contain a natural number greater than zero.  This number
 #   should be prefixed by one of {alpha,beta,rc,release}, which results in, e.g.,
 #   "alpha42".
