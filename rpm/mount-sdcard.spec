@@ -1,9 +1,10 @@
 %global branch sfos301
 Name:          mount-sdcard
 Summary:       Enhanced mounting scripts for media as SD-cards
+# The version adheres to semantic versioning v2.0.0, see https://semver.org/
 Version:       1.8.2
-# Since v1.8.2, the release version consists of two or three fields, separated
-# by dots ("."):
+# Since version 1.8.2, the release version consists of two or three fields,
+# separated by dots ("."):
 # - The first field must contain a natural number greater than zero.  This number
 #   should be prefixed by one of {alpha,beta,rc,release}, which results in, e.g.,
 #   "alpha42".
@@ -33,6 +34,7 @@ URL:           https://github.com/Olf0/%{name}
 # Download URLs for gzipped tarballs at GitHub must conform to:
 # %%{url}/archive/<tag-name>/<arbitrary-string>.tar.gz
 Source0:       %{url}/archive/%{release}/%{version}/%{name}-%{version}.tar.gz
+#Source99:       %{name}.rpmlintrc
 # rpmbuild (as of v4.14.1) handles the Icon tag awkwardly and in contrast to
 # the Source tag(s): It only accepts a GIF or XPM file (a path is stripped to
 # its basename) in the SOURCES directory (but not inside a tarball there)!
