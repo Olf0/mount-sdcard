@@ -93,6 +93,8 @@ cp -R polkit-1 systemd udev %{buildroot}%{_sysconfdir}/
 %{_sysconfdir}/polkit-1/localauthority/50-local.d/61-mountsd.pkla
 %config %{_sysconfdir}/systemd/system/mount-sd.conf
 
+# Changelog format: https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/SF4VVE4NBEDQJDJZ4DJ6YW2DTGMWP23E/#6O6DFC6GDOLCU7QC3QJKJ3VCUGAOTD24
 %changelog
 * Thu Sep  9 1999 olf <Olf0@users.noreply.github.com> - 99.99.99
 - See %{url}/releases
+
