@@ -66,7 +66,7 @@ Categories:
 DeveloperName: olf (Olf0)
 Custom:
   Repo: %{url}
-Icon: %{url}/raw/master/icon/smartmedia_unmount.256x256.png
+Icon: %{url}/raw/master/.icon/smartmedia_unmount.256x256.png
 Url:
   Homepage: https://openrepos.net/content/olf/%{name}
   Help: %{url}/issues
