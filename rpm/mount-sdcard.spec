@@ -26,9 +26,9 @@ Release:       beta1.%{branch}
 #   `%%{release}`.
 # - The second field is simply the content of the `Version:` tag, i.e.,
 #   `%%{version}`.
-# The Group field should comprise one of the groups listed here:
+# The Group tag should comprise one of the groups listed here:
 # https://github.com/mer-tools/spectacle/blob/master/data/GROUPS
-Group:         System/Base
+Group:         System/Startup Services
 Distribution:  SailfishOS
 Vendor:        olf
 License:       LGPL-2.1-only
